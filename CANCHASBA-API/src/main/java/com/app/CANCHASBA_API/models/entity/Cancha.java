@@ -14,7 +14,9 @@ import java.io.Serializable;
 @Entity
 public class Cancha implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cancha_seq_gen")
+    @SequenceGenerator(name = "cancha_seq_gen", sequenceName = "cancha_sequence", allocationSize = 1)
     @Column(name="id")
     private Long id;
     @Column(name="name", columnDefinition = "TEXT")
