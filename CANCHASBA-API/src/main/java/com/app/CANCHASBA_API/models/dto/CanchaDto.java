@@ -11,7 +11,7 @@ import java.io.Serializable;
 @ToString
 @Builder
 public class CanchaDto implements Serializable {
-    private Integer id;
+    private Long id;
     private String name;
     private String address;
     private String city;

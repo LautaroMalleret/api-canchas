@@ -14,26 +14,26 @@ import java.io.Serializable;
 @Entity
 public class Cancha implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private Integer id;
-    @Column(name="name")
+    private Long id;
+    @Column(name="name", columnDefinition = "TEXT")
     private String name;
-    @Column(name="address")
+    @Column(name="address", columnDefinition = "TEXT")
     private String address;
-    @Column(name="city")
+    @Column(name="city", columnDefinition = "TEXT")
     private String city;
-    @Column(name="zone")
+    @Column(name="zone", columnDefinition = "TEXT")
     private String zone;
-    @Column(name="phone")
+    @Column(name="phone", columnDefinition = "TEXT")
     private String phone;
-    @Column(name="quantity")
+    @Column(name="quantity", columnDefinition = "TEXT")
     private String quantity;
-    @Column(name="type")
+    @Column(name="type", columnDefinition = "TEXT")
     private String type;
-    @Column(name="size")
+    @Column(name="size", columnDefinition = "TEXT")
     private String size;
-    @Column(name="Rating")
+    @Column(name="Rating", columnDefinition = "TEXT")
     private String rating;
     @Column(name="Collaborator")
     private boolean collaborator;

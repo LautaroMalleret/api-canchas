@@ -35,7 +35,7 @@ public class implCancha implements InterfaceCanchaService {
 
     @Transactional(readOnly = true)
     @Override
-    public Cancha findById(Integer id) {
+    public Cancha findById(Long id) {
         return canchaDao.findById(id).orElse(null);
     }
 
@@ -46,7 +46,7 @@ public class implCancha implements InterfaceCanchaService {
     }
 
     @Override
-    public boolean existById(Integer id) {
+    public boolean existById(Long id) {
         return canchaDao.existsById(id);
     }
 

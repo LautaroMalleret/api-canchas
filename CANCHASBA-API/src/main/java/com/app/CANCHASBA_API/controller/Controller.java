@@ -76,7 +76,7 @@ public class Controller {
     }
 
     @PutMapping("/cancha/{id}")
-    public ResponseEntity<?> update(@RequestBody CanchaDto canchaDto, @PathVariable Integer id){
+    public ResponseEntity<?> update(@RequestBody CanchaDto canchaDto, @PathVariable Long id){
         Cancha canchaUpdate=null;
         try{
             if(canchaService.existById(id)){
@@ -121,7 +121,7 @@ public class Controller {
     }
 
     @DeleteMapping("cliente/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id){
+    public ResponseEntity<?> delete(@PathVariable Long id){
         try{
             Cancha canchaDelete = canchaService.findById(id);
             canchaService.delete(canchaDelete);
@@ -138,7 +138,7 @@ public class Controller {
     }
 
     @GetMapping("cancha/{id}")
-    public ResponseEntity<?> showById(@PathVariable Integer id){
+    public ResponseEntity<?> showById(@PathVariable Long id){
         Cancha cancha = canchaService.findById(id);
         if(cancha == null){
             return new ResponseEntity<>(

@@ -9,11 +9,11 @@ public interface InterfaceCanchaService {
 
         Cancha save (CanchaDto canchaDto);
 
-        Cancha findById(Integer id);
+        Cancha findById(Long id);
 
         void delete(Cancha cancha);
 
-        boolean existById(Integer id);
+        boolean existById(Long id);
 
         List<Cancha> listAll();
 
