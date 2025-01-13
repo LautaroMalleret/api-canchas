@@ -5,7 +5,4 @@ public class CanchaFilterDTO {
         private String type;
         private Integer size;
 
-        // Getters y setters
-
-
 }

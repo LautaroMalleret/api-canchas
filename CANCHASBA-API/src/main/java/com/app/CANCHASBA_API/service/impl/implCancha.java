@@ -7,7 +7,6 @@ import com.app.CANCHASBA_API.service.InterfaceCanchaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
@@ -73,7 +72,7 @@ public class implCancha implements InterfaceCanchaService {
     }
 
     @Override
-    public List<String> findDistinctCities() {
+    public List<String> findDistinctCities() { //RETORNA TODAS LAS CIUDADES DE LA BASE DE DATOS
         return canchaDao.findDistinctCities();
     }
 

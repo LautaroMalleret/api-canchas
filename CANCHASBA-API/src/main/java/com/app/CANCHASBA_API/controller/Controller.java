@@ -4,7 +4,6 @@ import com.app.CANCHASBA_API.models.dto.CanchaDto;
 import com.app.CANCHASBA_API.models.entity.Cancha;
 import com.app.CANCHASBA_API.models.payload.MessageResponse;
 import com.app.CANCHASBA_API.service.InterfaceCanchaService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -169,7 +168,7 @@ public class Controller {
 
     @GetMapping(value = "/")
     public String hola(){
-        return "hola como andas?";
+        return "hola soy lautaro y esta es mi api! esta es una api para consultar canchas de futbol de la provincia de buenos aires. Para saber como funciona agrega esta linea en la url de arriba : /swagger-ui/index.html#/";
     }
 
 

@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class MessageResponse {
+    //MANEJO DE RESPUESTA
     private String message;
     private Object object;
 }

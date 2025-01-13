@@ -1,11 +1,9 @@
 package com.app.CANCHASBA_API.models.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
-
 import java.io.Serializable;
 
 @Data
