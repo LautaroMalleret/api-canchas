@@ -120,7 +120,7 @@ public class Controller {
 
     }
 
-    @DeleteMapping("cliente/{id}")
+    @DeleteMapping("canchadelete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         try{
             Cancha canchaDelete = canchaService.findById(id);
@@ -171,4 +171,107 @@ public class Controller {
     public String hola(){
         return "hola como andas?";
     }
+
+
+    @GetMapping("/filter")
+    public ResponseEntity<?> filterCanchas(
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) String size) {
+        List<Cancha> filteredCanchas = canchaService.getFilteredCanchas(city.toUpperCase(), type.toUpperCase(), size);
+        if (filteredCanchas.isEmpty()) {
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("No records found for the provided filters")
+                            .object(null)
+                            .build(),
+                    HttpStatus.NOT_FOUND
+            );
+        }
+        // Convertimos la lista de Cancha a una lista de DTOs si es necesario
+        List<CanchaDto> canchaDtos = filteredCanchas.stream().map(cancha ->
+                CanchaDto.builder()
+                        .id(cancha.getId())
+                        .name(cancha.getName())
+                        .address(cancha.getAddress())
+                        .city(cancha.getCity())
+                        .zone(cancha.getZone())
+                        .phone(cancha.getPhone())
+                        .quantity(cancha.getQuantity())
+                        .type(cancha.getType())
+                        .size(cancha.getSize())
+                        .build()
+        ).toList();
+
+        return new ResponseEntity<>(
+                MessageResponse.builder()
+                        .message("")
+                        .object(canchaDtos)
+                        .build(),
+                HttpStatus.OK
+        );
+    }
+
+
+    @GetMapping("/filterByName")
+    public ResponseEntity<?> filterByName(@RequestParam(required = false) String name) {
+        List<Cancha> filteredCanchas = canchaService.findByName(name);
+
+        if (filteredCanchas.isEmpty()) {
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("No records found for the provided name")
+                            .object(null)
+                            .build(),
+                    HttpStatus.NOT_FOUND
+            );
+        }
+
+        List<CanchaDto> canchaDtos = filteredCanchas.stream().map(cancha ->
+                CanchaDto.builder()
+                        .id(cancha.getId())
+                        .name(cancha.getName())
+                        .address(cancha.getAddress())
+                        .city(cancha.getCity())
+                        .zone(cancha.getZone())
+                        .phone(cancha.getPhone())
+                        .quantity(cancha.getQuantity())
+                        .type(cancha.getType())
+                        .size(cancha.getSize())
+                        .build()
+        ).toList();
+
+        return new ResponseEntity<>(
+                MessageResponse.builder()
+                        .message("")
+                        .object(canchaDtos)
+                        .build(),
+                HttpStatus.OK
+        );
+    }
+
+
+    @GetMapping("/cities")
+    public ResponseEntity<?> getDistinctCities() {
+        List<String> cities = canchaService.findDistinctCities();
+
+        if (cities.isEmpty()) {
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("No cities found")
+                            .object(null)
+                            .build(),
+                    HttpStatus.NOT_FOUND
+            );
+        }
+
+        return new ResponseEntity<>(
+                MessageResponse.builder()
+                        .message("")
+                        .object(cities)
+                        .build(),
+                HttpStatus.OK
+        );
+    }
+
 }

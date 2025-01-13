@@ -17,4 +17,12 @@ public interface InterfaceCanchaService {
 
         List<Cancha> listAll();
 
+        List<Cancha> getFilteredCanchas(String city, String type, String size);
+
+        List<Cancha> findByName(String name);
+
+        List<String> findDistinctCities();
+
+
+
 }

@@ -54,4 +54,28 @@ public class implCancha implements InterfaceCanchaService {
     public List<Cancha> listAll() {
         return (List) canchaDao.findAll();
     }
+
+    @Override
+    public List<Cancha> getFilteredCanchas(String city, String type, String size) {
+        return canchaDao.findFilteredCanchas(
+                city != null && !city.isEmpty() ? city : null,
+                type != null && !type.isEmpty() ? type : null,
+                size != null && !size.isEmpty() ? size : null
+        );
+    }
+
+    @Override
+    public List<Cancha> findByName(String name) {
+        if (name == null || name.isEmpty()) {
+            return listAll(); // Retorna todas las canchas si no se especifica un nombre
+        }
+        return canchaDao.findByName(name);
+    }
+
+    @Override
+    public List<String> findDistinctCities() {
+        return canchaDao.findDistinctCities();
+    }
+
+
 }

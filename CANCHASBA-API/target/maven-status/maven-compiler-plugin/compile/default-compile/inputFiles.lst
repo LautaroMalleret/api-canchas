@@ -3,6 +3,7 @@
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/controller/Controller.java
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/models/dao/CanchaDao.java
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/models/dto/CanchaDto.java
+/home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/models/dto/CanchaFilterDTO.java
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/models/entity/Cancha.java
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/models/payload/MessageResponse.java
 /home/lautaro/IdeaProjects/api-canchas/CANCHASBA-API/src/main/java/com/app/CANCHASBA_API/service/InterfaceCanchaService.java
